@@ -3,11 +3,12 @@ import LocationMarker from './LocationMarker';
 
 const Map = ({ center, zoom }) => {
 
+  // console.log(process.env)
 
   return (
     <div className="map">
       <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyD2nYGmQGRa_YM5ma1OdWlDGGnvTYBLXcE' }} // swap out for real api key for non-dev layout
+        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }} // swap out for real api key for non-dev layout
         defaultCenter={center}
         defaultZoom={zoom}
       >
