@@ -8,3 +8,8 @@ body {
   /* position: relative; */
   background-color: 'black';
 }
+
+.location-icon {
+  font-size: 2rem;
+  color: orangered;
+}
