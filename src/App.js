@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import Map from './components/Map';
+import Loader from './components/Loader';
+
 
 const App = () => {
 
   const [eventData, setEventData] = useState([]);
   const [loading, setLoading] = useState(false);
-
-
 
   useEffect(() => {
     const fetchEvents = async () => {
@@ -20,11 +20,13 @@ const App = () => {
     }
     fetchEvents();
     console.log(eventData);
-  }, [])
+  }, []); // only needs to get the data on inital load
+
+
 
   return (
     <div>
-      <Map />
+      {!loading ? <Map eventData={eventData} /> : <Loader />}
     </div>
   )
 }
