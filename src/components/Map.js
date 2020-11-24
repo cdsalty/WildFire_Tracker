@@ -1,9 +1,15 @@
 import GoogleMapReact from 'google-map-react';  // DOCS: https://www.npmjs.com/package/google-map-react
 import LocationMarker from './LocationMarker';
 
-const Map = ({ center, zoom }) => {
-
+const Map = ({ eventData, center, zoom }) => {
   // console.log(process.env)
+
+  const markers = eventData.map((evtData) => {
+    if (evtData.categories[0].id === 8) {
+      return <LocationMarker lat={evtData.geometries[0].coordinates[1]} lng={evtData.geometries[0].coordinates[0]} />
+    }
+    return null;
+  })
 
   return (
     <div className="map">
@@ -12,11 +18,13 @@ const Map = ({ center, zoom }) => {
         defaultCenter={center}
         defaultZoom={zoom}
       >
-        <LocationMarker lat={center.lat} lng={center.lng} />
+        {/* <LocationMarker lat={center.lat} lng={center.lng} /> REPLACED WITH 'MARKERS'*/}
+        {markers}
       </GoogleMapReact>
     </div>
   )
 }
+
 // Defining default location
 Map.defaultProps = {
   center: {
@@ -26,3 +34,5 @@ Map.defaultProps = {
   zoom: 6
 }
 export default Map;
+
+

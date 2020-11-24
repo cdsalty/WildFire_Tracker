@@ -11,15 +11,16 @@ const App = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       setLoading(true);
+      // const days = '?days=20';
       const response = await fetch('https://eonet.sci.gsfc.nasa.gov/api/v2.1/events');
-      const { events } = await response.json();
+      const { events } = await response.json(); // I specifically need the events array... 
       // console.log(events)
       setEventData(events);
       // console.log(eventData);
       setLoading(false);
     }
     fetchEvents();
-    console.log(eventData);
+    console.log("The eventData value:" + eventData);
   }, []); // only needs to get the data on inital load
 
 
