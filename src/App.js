@@ -20,7 +20,7 @@ const App = () => {
       setLoading(false);
     }
     fetchEvents();
-    console.log("The eventData value:" + eventData);
+    // eslint-disable-next-line
   }, []); // only needs to get the data on inital load
 
 
