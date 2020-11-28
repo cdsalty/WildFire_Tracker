@@ -12,8 +12,9 @@ const App = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       setLoading(true);
-      // const days = '?days=20';
-      const response = await fetch('https://eonet.sci.gsfc.nasa.gov/api/v2.1/events');
+      // const days = '?days=20'; https://eonet.sci.gsfc.nasa.gov/api/v2.1/events?days=20
+      // const response = await fetch('https://eonet.sci.gsfc.nasa.gov/api/v2.1/events');
+      const response = await fetch('https://eonet.sci.gsfc.nasa.gov/api/v2.1/events?days=20');
       const { events } = await response.json(); // I specifically need the events array... 
       // console.log(events)
       setEventData(events);
